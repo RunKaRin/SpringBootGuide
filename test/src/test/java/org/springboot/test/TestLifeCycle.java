@@ -42,7 +42,7 @@ public class TestLifeCycle {
     }
 
     @Test
-    @Disabled
+    @Disabled // 비활성화
     void test3() {
         System.out.println("## test3 시작 ##");
         System.out.println();
