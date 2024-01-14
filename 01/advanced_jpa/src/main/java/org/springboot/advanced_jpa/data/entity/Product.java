@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor  // 모든 필드를 인자로 받는 생성자 생성
 @ToString(exclude = "name")
 @Table(name = "product")
-public class Product {
+public class Product extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +26,4 @@ public class Product {
 
     @Column(nullable = false)
     private Integer stock;
-
-    private LocalDateTime createdAt;
-
-    private LocalDateTime updatedAt;
 }
