@@ -9,9 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Order;
 
-
 import java.time.LocalDateTime;
-import java.util.List;
 
 @SpringBootTest
 public class ProductRepositoryTest {
