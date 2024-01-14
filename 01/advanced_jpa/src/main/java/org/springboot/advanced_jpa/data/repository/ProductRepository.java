@@ -42,11 +42,11 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findByUpdatedAtIsNotNull();
     List<Product> findByUpdatedAtNotNull();
 
-    // True, False (is 생략 가능)
-    Product findByisActiveIsTrue();
-    Product findByisActiveTrue();
-    Product findByisActiveIsFalse();
-    Product findByisActiveFalse();
+//    // True, False (is 생략 가능) // 엔티티에 불리안값 추가하기 귀찮아서 주석처리
+//    Product findByisActiveIsTrue();
+//    Product findByisActiveTrue();
+//    Product findByisActiveIsFalse();
+//    Product findByisActiveFalse();
 
     // And, Or
     Product findByNumberAndName(Long number, String name);
