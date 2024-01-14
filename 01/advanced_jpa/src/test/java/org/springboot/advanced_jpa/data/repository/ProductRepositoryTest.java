@@ -10,6 +10,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Order;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 
 @SpringBootTest
 public class ProductRepositoryTest {
@@ -50,6 +52,26 @@ public class ProductRepositoryTest {
 
         Page<Product> productPage = productRepository.findByName("펜", PageRequest.of(0, 2));
         System.out.println(productPage.getContent());
+    }
+
+    @Test
+    void queryAnnotationTest() {
+        Product product1 = new Product(1L, "펜", 1000, 100, LocalDateTime.now(), LocalDateTime.now());
+        Product product2 = new Product(2L, "펜", 5000, 300, LocalDateTime.now(), LocalDateTime.now());
+        Product product3 = new Product(3L, "펜", 1000, 50, LocalDateTime.now(), LocalDateTime.now());
+        productRepository.saveAll(List.of(product1, product2, product3));
+
+        List<Product> productsByName = productRepository.findByName("펜");
+        System.out.println("Products by Name: " + productsByName);
+
+        List<Product> productsByNameParam = productRepository.findByNameParam("펜");
+        System.out.println("Products by Name (Param): " + productsByNameParam);
+
+        List<Object[]> productsByNameParam2 = productRepository.findByNameParam2("펜");
+        System.out.println("Products by Name (Param2):");
+        for (Object[] result : productsByNameParam2) {
+            System.out.println(Arrays.toString(result));
+        }
     }
 
     private Sort getSort() {
