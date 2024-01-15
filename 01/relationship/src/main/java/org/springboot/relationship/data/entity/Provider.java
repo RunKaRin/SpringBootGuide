@@ -23,7 +23,10 @@ public class Provider extends BaseEntity {
 
     private String name;
 
-    @OneToMany(mappedBy = "provider", fetch = FetchType.EAGER)
+//    @OneToMany(mappedBy = "provider", fetch = FetchType.EAGER) // ProviderRepositoryTest 테스트1,2 사용가능
+//    @OneToMany(mappedBy = "provider", cascade = CascadeType.PERSIST) // cascadeTest 사용가능 orphanRemovalTest remove 불가능
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    // cascadeTest 사용가능, orphanRemovalTest remove 확인가능
     @ToString.Exclude
     private List<Product> productList = new ArrayList<>();
 }
