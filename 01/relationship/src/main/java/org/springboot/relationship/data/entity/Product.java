@@ -26,6 +26,15 @@ public class Product extends BaseEntity{
     @Column(nullable = false)
     private Integer stock;
 
+    @OneToOne(mappedBy = "product")
+    @ToString.Exclude
+    private ProductDetail productDetail;
+
+    @ManyToOne
+    @JoinColumn(name = "provider_id")
+    @ToString.Exclude
+    private Provider provider;
+
     public Product(Long number, String name, Integer price, Integer stock) {
         this.number = number;
         this.name = name;
