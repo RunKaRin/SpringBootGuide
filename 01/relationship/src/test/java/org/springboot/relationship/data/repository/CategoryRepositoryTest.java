@@ -17,7 +17,7 @@ public class CategoryRepositoryTest {
     CategoryRepository categoryRepository;
 
     @Test
-    void relationshipTest() {
+    void relationshipTest() { // 1:N 매핑
         Product product = new Product();
         product.setName("펜");
         product.setPrice(2000);
