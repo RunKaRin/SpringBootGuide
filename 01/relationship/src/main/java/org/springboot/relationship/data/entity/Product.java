@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -35,10 +37,18 @@ public class Product extends BaseEntity{
     @ToString.Exclude
     private Provider provider;
 
+    @ManyToMany
+    @ToString.Exclude
+    private List<Producer> producers = new ArrayList<>();
+
     public Product(Long number, String name, Integer price, Integer stock) {
         this.number = number;
         this.name = name;
         this.price = price;
         this.stock = stock;
+    }
+
+    public void addProducer(Producer producer) {
+        this.producers.add(producer);
     }
 }
