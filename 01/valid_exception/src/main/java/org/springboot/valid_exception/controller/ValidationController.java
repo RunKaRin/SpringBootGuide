@@ -29,7 +29,7 @@ public class ValidationController {
     }
 
     @PostMapping("/validated")
-    public ResponseEntity<String> checkValidation(@Valid @RequestBody ValidatedRequestDto validatedRequestDto) {
+    public ResponseEntity<String> checkValidation(@Validated @RequestBody ValidatedRequestDto validatedRequestDto) {
         LOGGER.info(validatedRequestDto.toString());
 
         return ResponseEntity.status(HttpStatus.OK).body(validatedRequestDto.toString());

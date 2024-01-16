@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springboot.valid_exception.config.annotation.Telephone;
 import org.springboot.valid_exception.data.group.ValidationGroup1;
 import org.springboot.valid_exception.data.group.ValidationGroup2;
 
@@ -20,7 +21,7 @@ public class ValidatedRequestDto {
     @Email
     private String email;
 
-    @Pattern(regexp = "01(?:0|1|[6-9])[.-]?(\\d{3}|\\d{4})[.-]?(\\d{4})$")
+    @Telephone
     String phoneNumber;
 
     @Min(value = 20, groups = ValidationGroup1.class)
