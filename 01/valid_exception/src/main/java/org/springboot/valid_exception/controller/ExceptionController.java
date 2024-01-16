@@ -3,6 +3,8 @@ package org.springboot.valid_exception.controller;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springboot.valid_exception.common.Constants;
+import org.springboot.valid_exception.common.exception.CustomException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -40,5 +42,10 @@ public class ExceptionController {
         map.put("message", e.getMessage());
 
         return new ResponseEntity<>(map, responseHeaders, httpStatus);
+    }
+
+    @GetMapping("/custom")
+    public void getCustomException() throws CustomException {
+        throw new CustomException(Constants.ExceptionClass.PRODUCT, HttpStatus.BAD_REQUEST, "getCustomException 메서드 호출");
     }
 }

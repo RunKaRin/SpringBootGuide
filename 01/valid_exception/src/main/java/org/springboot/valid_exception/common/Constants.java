@@ -1,0 +1,18 @@
+package org.springboot.valid_exception.common;
+
+public class Constants {
+
+    public enum ExceptionClass {
+        PRODUCT("product");
+        private String exceptionClass;
+        ExceptionClass(String exceptionClass) {
+            this.exceptionClass = exceptionClass;
+        }
+        public String getExceptionClass() {
+            return exceptionClass;
+        }
+        public String toString() {
+            return getExceptionClass() + " Exception. ";
+        }
+    }
+}
