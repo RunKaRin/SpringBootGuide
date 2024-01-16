@@ -25,6 +25,9 @@ public class ValidatedRequestDto {
 
     @Min(value = 20, groups = ValidationGroup1.class)
     @Max(value = 40, groups = ValidationGroup1.class)
+    private int age;
+
+    @Size(min = 0, max = 40)
     private String description;
 
     @Positive(groups = ValidationGroup2.class)
