@@ -1,8 +1,8 @@
 package org.springboot.rest.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springboot.rest.dto.MemberDto;
 import org.springboot.rest.service.RestTemplateService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,14 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/rest-template")
 public class RestTemplateController {
 
     private final RestTemplateService restTemplateService;
-
-    public RestTemplateController(RestTemplateService restTemplateService) {
-        this.restTemplateService = restTemplateService;
-    }
 
     @GetMapping
     public String getName() {
