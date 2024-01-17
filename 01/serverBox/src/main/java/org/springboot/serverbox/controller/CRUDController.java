@@ -41,7 +41,7 @@ public class CRUDController {
         return ResponseEntity.status(HttpStatus.OK).body(memberDto);
     }
 
-    @PostMapping(value = "/add-beader")
+    @PostMapping(value = "/add-header")
     public ResponseEntity<MemberDto> addHeader(@RequestHeader("my-header") String header,
                                                @RequestBody MemberDto memberDto) {
         System.out.println(header);
