@@ -27,10 +27,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
                 .and()
                 .authorizeRequests()
-                .antMatchers("/sign-api/sign-in", "sign-api/sign-up", "sign-api/exception").permitAll()
+                .antMatchers("/sign-api/sign-in", "/sign-api/sign-up", "/sign-api/exception").permitAll()
                 .antMatchers(HttpMethod.GET, "/product/**").permitAll()
                 .antMatchers("**exception**").permitAll()
-                .anyRequest().hasRole("ADMIN")
+                .anyRequest().hasAuthority("ADMIN")
 
                 .and()
                 .exceptionHandling().accessDeniedHandler(new CustomAccessDeniedHandler())
@@ -45,8 +45,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity webSecurity) throws Exception {
-        webSecurity.ignoring().antMatchers("/api-docs",
-                                           "swagger-resources/**",
+        webSecurity.ignoring().antMatchers("/v2/api-docs",
+                                           "/swagger-resources/**",
                                            "/swagger-ui.html",
                                            "/webjars/**",
                                            "/swagger/**",

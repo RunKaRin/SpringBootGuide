@@ -1,5 +1,7 @@
 package org.springboot.security.controller;
 
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import org.springboot.security.data.dto.ChangeProductNameDto;
 import org.springboot.security.data.dto.ProductDto;
 import org.springboot.security.data.dto.ProductResponseDto;
@@ -27,6 +29,11 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body(productResponseDto);
     }
 
+    @ApiImplicitParams({@ApiImplicitParam(name = "X-AUTH-TOKEN",
+                                          value = "로그인 성공 후 발급 받은 access_token",
+                                          required = true,
+                                          dataType = "String",
+                                          paramType = "header")})
     @PostMapping()
     public ResponseEntity<ProductResponseDto> createProduct(@RequestBody ProductDto productDto) {
         ProductResponseDto productResponseDto = productService.saveProduct(productDto);

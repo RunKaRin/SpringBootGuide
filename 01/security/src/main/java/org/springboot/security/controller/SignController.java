@@ -43,10 +43,10 @@ public class SignController {
             @ApiParam(value = "PW", required = true) @RequestParam String password,
             @ApiParam(value = "이름", required = true) @RequestParam String name,
             @ApiParam(value = "권한", required = true) @RequestParam String role) {
-        LOGGER.info("[signUp] 회원가입을 수행합니다. id : {}, password : ****, name : {}, role : {}", id, name, role);
+        LOGGER.info("[signUp] 회원가입을 수행합니다. ID : {}, password : ****, name : {}, role : {}", id, name, role);
         SignUpResultDto signUpResultDto = signService.signUp(id, password, name, role);
 
-        LOGGER.info("[signUp] 회원가입을 완료했습니다. Id : {}", id);
+        LOGGER.info("[signUp] 회원가입을 완료했습니다. ID : {}", id);
 
         return signUpResultDto;
     }
