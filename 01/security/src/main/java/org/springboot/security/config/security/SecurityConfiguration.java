@@ -30,6 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/sign-api/sign-in", "/sign-api/sign-up", "/sign-api/exception").permitAll()
                 .antMatchers(HttpMethod.GET, "/product/**").permitAll()
                 .antMatchers("**exception**").permitAll()
+//                .anyRequest().hasRole("ADMIN") // 상품등록할때 에러뜸
                 .anyRequest().hasAuthority("ADMIN")
 
                 .and()
